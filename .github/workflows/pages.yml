@@ -1,0 +1,57 @@
+name: Deploy Hexo to GitHub Pages # 设置这个 GitHub Actions 工作流的名称
+
+on: # 设置触发条件
+  push: # 当代码被推送到 GitHub 时触发
+    branches: # 指定监听哪些分支
+      - main # 只监听 main 分支
+  workflow_dispatch: # 允许在 GitHub 网页上手动运行这个工作流
+
+permissions: # 设置工作流权限
+  contents: read # 允许读取仓库代码
+  pages: write # 允许写入 GitHub Pages 发布内容
+  id-token: write # 允许获取部署时需要的身份令牌
+
+concurrency: # 设置并发控制
+  group: pages # 把 Pages 部署任务放入同一个并发组
+  cancel-in-progress: false # 不取消正在运行的部署任务
+
+jobs: # 定义具体任务
+  build: # 定义构建任务
+    runs-on: ubuntu-latest # 使用 GitHub 提供的 Ubuntu 运行环境
+
+    steps: # 定义构建任务的执行步骤
+      - name: Checkout repository # 步骤名称：拉取仓库代码
+        uses: actions/checkout@v4 # 使用 GitHub 官方 checkout 动作
+
+      - name: Setup Node.js # 步骤名称：安装 Node.js 环境
+        uses: actions/setup-node@v4 # 使用 GitHub 官方 Node.js 动作
+        with: # 设置 Node.js 参数
+          node-version: 22 # 使用 Node.js 22 版本
+          cache: npm # 开启 npm 缓存，加快后续构建速度
+
+      - name: Setup Pages # 步骤名称：配置 GitHub Pages
+        uses: actions/configure-pages@v5 # 使用 GitHub 官方 Pages 配置动作
+
+      - name: Install dependencies # 步骤名称：安装项目依赖
+        run: npm ci # 根据 package-lock.json 精确安装依赖
+
+      - name: Build Hexo site # 步骤名称：生成 Hexo 静态网页
+        run: npx hexo generate # 使用 Hexo 生成 public 文件夹
+
+      - name: Upload Pages artifact # 步骤名称：上传生成好的网页文件
+        uses: actions/upload-pages-artifact@v3 # 使用 GitHub 官方 Pages 上传动作
+        with: # 设置上传参数
+          path: ./public # 上传 Hexo 生成的 public 文件夹
+
+  deploy: # 定义部署任务
+    needs: build # 部署任务必须等待 build 任务完成
+    runs-on: ubuntu-latest # 使用 GitHub 提供的 Ubuntu 运行环境
+
+    environment: # 设置部署环境
+      name: github-pages # 指定部署环境名为 GitHub Pages
+      url: ${{ steps.deployment.outputs.page_url }} # 部署成功后输出网站地址
+
+    steps: # 定义部署任务的执行步骤
+      - name: Deploy to GitHub Pages # 步骤名称：部署到 GitHub Pages
+        id: deployment # 设置步骤 ID，方便上面读取部署后的网址
+        uses: actions/deploy-pages@v4 # 使用 GitHub 官方 Pages 部署动作

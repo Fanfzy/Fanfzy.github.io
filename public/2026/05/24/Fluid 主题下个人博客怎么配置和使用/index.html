@@ -1,0 +1,1231 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Fan Zhaoyu">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Fluid主题下个人博客的配置与使用在完成 Hexo 本地部署，并且已经安装和启用 Fluid 主题之后，我开始对自己的个人博客进行进一步配置。 这篇文章主要记录的是：在 Fluid 主题已经可以正常显示的基础上，如何继续配置个人博客，包括博客基本信息、首页导航栏、分类与标签、博客图片、文章封面、关于页面中的个人信息，以及以后每次新建文章时应该遵循的流程。 这篇文章不是从零搭建教程，而是我在博客已">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fluid主题下个人博客的配置与使用">
+<meta property="og:url" content="https://fanfzy.github.io/2026/05/24/Fluid%20%E4%B8%BB%E9%A2%98%E4%B8%8B%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%80%8E%E4%B9%88%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="FAN的个人博客">
+<meta property="og:description" content="Fluid主题下个人博客的配置与使用在完成 Hexo 本地部署，并且已经安装和启用 Fluid 主题之后，我开始对自己的个人博客进行进一步配置。 这篇文章主要记录的是：在 Fluid 主题已经可以正常显示的基础上，如何继续配置个人博客，包括博客基本信息、首页导航栏、分类与标签、博客图片、文章封面、关于页面中的个人信息，以及以后每次新建文章时应该遵循的流程。 这篇文章不是从零搭建教程，而是我在博客已">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fanfzy.github.io/img/post/default.png">
+<meta property="article:published_time" content="2026-05-24T08:30:00.000Z">
+<meta property="article:modified_time" content="2026-05-24T08:28:08.197Z">
+<meta property="article:author" content="Fan Zhaoyu">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="Fluid">
+<meta property="article:tag" content="个人博客">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://fanfzy.github.io/img/post/default.png">
+  
+  
+  
+  <title>Fluid主题下个人博客的配置与使用 - FAN的个人博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"fanfzy.github.io","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fan Zhaoyu的个人博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>归档</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg/bg.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Fluid主题下个人博客的配置与使用"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Fan Zhaoyu
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-05-24 16:30" pubdate>
+          2026-05-24 16:30
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          7.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          61 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Fluid主题下个人博客的配置与使用</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Fluid主题下个人博客的配置与使用"><a href="#Fluid主题下个人博客的配置与使用" class="headerlink" title="Fluid主题下个人博客的配置与使用"></a>Fluid主题下个人博客的配置与使用</h1><p>在完成 Hexo 本地部署，并且已经安装和启用 Fluid 主题之后，我开始对自己的个人博客进行进一步配置。</p>
+<p>这篇文章主要记录的是：在 Fluid 主题已经可以正常显示的基础上，如何继续配置个人博客，包括博客基本信息、首页导航栏、分类与标签、博客图片、文章封面、关于页面中的个人信息，以及以后每次新建文章时应该遵循的流程。</p>
+<p>这篇文章不是从零搭建教程，而是我在博客已经能通过 <code>http://localhost:4000</code> 正常访问之后，对博客进行个性化配置和日常使用的记录。</p>
+<hr>
+<h2 id="一、配置文件的基本分工"><a href="#一、配置文件的基本分工" class="headerlink" title="一、配置文件的基本分工"></a>一、配置文件的基本分工</h2><p>使用 Fluid 主题之后，博客中最重要的配置文件主要有两个。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">_config.yml<br>_config.fluid.yml<br></code></pre></td></tr></table></figure>
+
+<p>它们的作用不一样。</p>
+<table>
+<thead>
+<tr>
+<th>文件</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>_config.yml</code></td>
+<td>Hexo 博客的总配置文件</td>
+</tr>
+<tr>
+<td><code>_config.fluid.yml</code></td>
+<td>Fluid 主题的专用配置文件</td>
+</tr>
+</tbody></table>
+<p>一般来说，博客的标题、作者、语言、时区、主题名称这些内容放在 <code>_config.yml</code> 中。</p>
+<p>而 Fluid 主题的首页样式、导航栏、关于页、代码块、图片、社交链接等内容，主要在 <code>_config.fluid.yml</code> 中修改。</p>
+<p>我现在的理解是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">_config.yml 管整个博客的基础信息。<br>_config.fluid.yml 管 Fluid 主题的页面显示效果。<br></code></pre></td></tr></table></figure>
+
+<p>所以，在后续配置时，我不会直接修改 <code>node_modules</code> 里的主题源文件，而是优先修改博客根目录下的 <code>_config.fluid.yml</code>。</p>
+<hr>
+<h2 id="二、配置博客的基础信息"><a href="#二、配置博客的基础信息" class="headerlink" title="二、配置博客的基础信息"></a>二、配置博客的基础信息</h2><p>博客的基础信息在根目录的 <code>_config.yml</code> 中修改。</p>
+<p>例如：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">title:</span> <span class="hljs-string">Fan</span> <span class="hljs-string">Zhaoyu的个人博客</span> <span class="hljs-comment"># 设置博客标题，通常显示在网页标题或主题首页中</span><br><span class="hljs-attr">subtitle:</span> <span class="hljs-string">学习、编程与生活记录</span> <span class="hljs-comment"># 设置博客副标题，用来概括博客内容</span><br><span class="hljs-attr">description:</span> <span class="hljs-string">记录学习、编程、课程作业和个人项目</span> <span class="hljs-comment"># 设置博客描述，说明这个博客主要写什么</span><br><span class="hljs-attr">keywords:</span> <span class="hljs-string">博客,学习,编程,Hexo,Fluid</span> <span class="hljs-comment"># 设置博客关键词，多个关键词之间用英文逗号隔开</span><br><span class="hljs-attr">author:</span> <span class="hljs-string">Fan</span> <span class="hljs-string">Zhaoyu</span> <span class="hljs-comment"># 设置博客作者名称</span><br><span class="hljs-attr">language:</span> <span class="hljs-string">zh-CN</span> <span class="hljs-comment"># 设置博客语言为简体中文</span><br><span class="hljs-attr">timezone:</span> <span class="hljs-string">Asia/Shanghai</span> <span class="hljs-comment"># 设置博客时间为北京时间</span><br><span class="hljs-attr">theme:</span> <span class="hljs-string">fluid</span> <span class="hljs-comment"># 设置当前博客使用 Fluid 主题</span><br></code></pre></td></tr></table></figure>
+
+<p>这几项中，我认为最重要的是：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">language:</span> <span class="hljs-string">zh-CN</span> <span class="hljs-comment"># 设置博客界面为简体中文</span><br><span class="hljs-attr">timezone:</span> <span class="hljs-string">Asia/Shanghai</span> <span class="hljs-comment"># 设置博客文章时间为北京时间</span><br><span class="hljs-attr">theme:</span> <span class="hljs-string">fluid</span> <span class="hljs-comment"># 指定当前使用 Fluid 主题</span><br></code></pre></td></tr></table></figure>
+
+<p>如果 <code>theme</code> 没有写成 <code>fluid</code>，那么 Hexo 就不会使用 Fluid 主题。</p>
+<p>修改 <code>_config.yml</code> 之后，需要重新生成博客页面：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo clean <span class="hljs-comment"># 清理旧缓存，避免旧配置继续影响网页显示</span><br>hexo g <span class="hljs-comment"># 重新生成博客静态网页</span><br>hexo s <span class="hljs-comment"># 启动本地预览服务器</span><br></code></pre></td></tr></table></figure>
+
+<p>然后打开：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">http://localhost:4000<br></code></pre></td></tr></table></figure>
+
+<p>查看修改是否生效。</p>
+<hr>
+<h2 id="三、配置博客顶部导航栏"><a href="#三、配置博客顶部导航栏" class="headerlink" title="三、配置博客顶部导航栏"></a>三、配置博客顶部导航栏</h2><p>Fluid 主题的顶部导航栏主要在 <code>_config.fluid.yml</code> 中配置。</p>
+<p>打开：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">_config.fluid.yml<br></code></pre></td></tr></table></figure>
+
+<p>搜索：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">navbar:<br></code></pre></td></tr></table></figure>
+
+<p>可以把导航栏配置成下面这样：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">navbar:</span> <span class="hljs-comment"># 配置网页顶部导航栏</span><br>  <span class="hljs-attr">blog_title:</span> <span class="hljs-string">Fan</span> <span class="hljs-string">Zhaoyu的个人博客</span> <span class="hljs-comment"># 设置导航栏左侧显示的博客名称</span><br>  <span class="hljs-attr">menu:</span> <span class="hljs-comment"># 配置导航栏右侧的菜单</span><br>    <span class="hljs-bullet">-</span> &#123; <span class="hljs-attr">key:</span> <span class="hljs-string">&#x27;home&#x27;</span>, <span class="hljs-attr">link:</span> <span class="hljs-string">&#x27;/&#x27;</span>, <span class="hljs-attr">icon:</span> <span class="hljs-string">&#x27;iconfont icon-home-fill&#x27;</span> &#125; <span class="hljs-comment"># 设置首页入口</span><br>    <span class="hljs-bullet">-</span> &#123; <span class="hljs-attr">key:</span> <span class="hljs-string">&#x27;archive&#x27;</span>, <span class="hljs-attr">link:</span> <span class="hljs-string">&#x27;/archives/&#x27;</span>, <span class="hljs-attr">icon:</span> <span class="hljs-string">&#x27;iconfont icon-archive-fill&#x27;</span> &#125; <span class="hljs-comment"># 设置归档页面入口</span><br>    <span class="hljs-bullet">-</span> &#123; <span class="hljs-attr">key:</span> <span class="hljs-string">&#x27;category&#x27;</span>, <span class="hljs-attr">link:</span> <span class="hljs-string">&#x27;/categories/&#x27;</span>, <span class="hljs-attr">icon:</span> <span class="hljs-string">&#x27;iconfont icon-category-fill&#x27;</span> &#125; <span class="hljs-comment"># 设置分类页面入口</span><br>    <span class="hljs-bullet">-</span> &#123; <span class="hljs-attr">key:</span> <span class="hljs-string">&#x27;tag&#x27;</span>, <span class="hljs-attr">link:</span> <span class="hljs-string">&#x27;/tags/&#x27;</span>, <span class="hljs-attr">icon:</span> <span class="hljs-string">&#x27;iconfont icon-tags-fill&#x27;</span> &#125; <span class="hljs-comment"># 设置标签页面入口</span><br>    <span class="hljs-bullet">-</span> &#123; <span class="hljs-attr">key:</span> <span class="hljs-string">&#x27;about&#x27;</span>, <span class="hljs-attr">link:</span> <span class="hljs-string">&#x27;/about/&#x27;</span>, <span class="hljs-attr">icon:</span> <span class="hljs-string">&#x27;iconfont icon-user-fill&#x27;</span> &#125; <span class="hljs-comment"># 设置关于页面入口</span><br></code></pre></td></tr></table></figure>
+
+<p>这里的导航栏主要包括五个入口：</p>
+<table>
+<thead>
+<tr>
+<th>导航项</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>首页</td>
+<td>进入博客主页</td>
+</tr>
+<tr>
+<td>归档</td>
+<td>按时间顺序查看全部文章</td>
+</tr>
+<tr>
+<td>分类</td>
+<td>按文章分类查看内容</td>
+</tr>
+<tr>
+<td>标签</td>
+<td>按文章标签查看内容</td>
+</tr>
+<tr>
+<td>关于</td>
+<td>查看个人介绍和联系方式</td>
+</tr>
+</tbody></table>
+<p>如果导航栏中有分类、标签、关于这些页面，就需要保证对应页面已经存在。</p>
+<hr>
+<h2 id="四、配置分类页、标签页和关于页"><a href="#四、配置分类页、标签页和关于页" class="headerlink" title="四、配置分类页、标签页和关于页"></a>四、配置分类页、标签页和关于页</h2><p>Fluid 主题中的分类页、标签页和关于页，都需要在 <code>source</code> 文件夹下有对应页面。</p>
+<p>这几个页面通常放在：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">source/categories/index.md<br>source/tags/index.md<br>source/about/index.md<br></code></pre></td></tr></table></figure>
+
+<p>如果还没有这些页面，可以在博客根目录下执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new page categories <span class="hljs-comment"># 新建分类页面</span><br>hexo new page tags <span class="hljs-comment"># 新建标签页面</span><br>hexo new page about <span class="hljs-comment"># 新建关于页面</span><br></code></pre></td></tr></table></figure>
+
+<p>创建完成后，需要分别修改它们的 Front-matter。</p>
+<p>分类页：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs markdown">---<br>title: 分类<br><span class="hljs-section">layout: category</span><br><span class="hljs-section">---</span><br></code></pre></td></tr></table></figure>
+
+<p>标签页：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs markdown">---<br>title: 标签<br><span class="hljs-section">layout: tag</span><br><span class="hljs-section">---</span><br></code></pre></td></tr></table></figure>
+
+<p>关于页：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs markdown">---<br>title: 关于<br><span class="hljs-section">layout: about</span><br><span class="hljs-section">---</span><br><br>这里是我的个人博客。<br><br>我会在这里记录学习、编程、课程作业、个人项目和博客搭建过程。<br></code></pre></td></tr></table></figure>
+
+<p>其中最重要的是 <code>layout</code>。</p>
+<table>
+<thead>
+<tr>
+<th>页面</th>
+<th>需要的 layout</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>分类页</td>
+<td><code>layout: category</code></td>
+</tr>
+<tr>
+<td>标签页</td>
+<td><code>layout: tag</code></td>
+</tr>
+<tr>
+<td>关于页</td>
+<td><code>layout: about</code></td>
+</tr>
+</tbody></table>
+<p>如果 <code>layout</code> 写错，页面可能会生成，但是 Fluid 的主题样式不会正常显示。</p>
+<hr>
+<h2 id="五、配置首页背景图和首页文字"><a href="#五、配置首页背景图和首页文字" class="headerlink" title="五、配置首页背景图和首页文字"></a>五、配置首页背景图和首页文字</h2><p>Fluid 主题首页上方一般会显示一张大图，也可以显示一句博客标语。</p>
+<p>我把博客图片统一放在：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">source/img<br></code></pre></td></tr></table></figure>
+
+<p>常用图片目录可以这样安排：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">source/img/bg<br>source/img/post<br>source/img/avatar<br></code></pre></td></tr></table></figure>
+
+<p>它们分别表示：</p>
+<table>
+<thead>
+<tr>
+<th>文件夹</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>source/img/bg</code></td>
+<td>放首页背景图、文章顶部大图</td>
+</tr>
+<tr>
+<td><code>source/img/post</code></td>
+<td>放文章封面图</td>
+</tr>
+<tr>
+<td><code>source/img/avatar</code></td>
+<td>放头像、微信二维码等个人信息图片</td>
+</tr>
+</tbody></table>
+<p>例如，我可以放这几张图片：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">source/img/bg/home.jpg<br>source/img/post/default.jpg<br>source/img/avatar/avatar.png<br>source/img/avatar/wechat.png<br></code></pre></td></tr></table></figure>
+
+<p>在 Hexo 中，<code>source</code> 文件夹会被当成网站根目录。</p>
+<p>所以图片路径应该这样写：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">/img/bg/home.jpg<br>/img/post/default.jpg<br>/img/avatar/avatar.png<br>/img/avatar/wechat.png<br></code></pre></td></tr></table></figure>
+
+<p>而不是写成：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">/source/img/bg/home.jpg<br></code></pre></td></tr></table></figure>
+
+<p>首页背景图可以在 <code>_config.fluid.yml</code> 中配置。</p>
+<p>搜索：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">index:<br></code></pre></td></tr></table></figure>
+
+<p>然后修改：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">index:</span> <span class="hljs-comment"># 配置博客首页</span><br>  <span class="hljs-attr">banner_img:</span> <span class="hljs-string">/img/bg/bg.png</span> <span class="hljs-comment"># 设置首页顶部背景图</span><br>  <span class="hljs-attr">banner_img_height:</span> <span class="hljs-number">70</span> <span class="hljs-comment"># 设置首页背景图高度</span><br>  <span class="hljs-attr">banner_mask_alpha:</span> <span class="hljs-number">0.3</span> <span class="hljs-comment"># 设置首页背景图遮罩透明度</span><br>  <span class="hljs-attr">slogan:</span> <span class="hljs-comment"># 配置首页标语</span><br>    <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># 开启首页标语</span><br>    <span class="hljs-attr">text:</span> <span class="hljs-string">&quot;记录学习，记录成长&quot;</span> <span class="hljs-comment"># 设置首页显示的文字</span><br></code></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>banner_img</code></td>
+<td>首页顶部背景图</td>
+</tr>
+<tr>
+<td><code>banner_img_height</code></td>
+<td>首页顶部图片高度</td>
+</tr>
+<tr>
+<td><code>banner_mask_alpha</code></td>
+<td>图片遮罩透明度</td>
+</tr>
+<tr>
+<td><code>slogan.text</code></td>
+<td>首页显示的文字</td>
+</tr>
+</tbody></table>
+<p>如果首页图片不显示，优先检查图片路径是否正确。</p>
+<hr>
+<h2 id="六、配置文章封面图和文章顶部图"><a href="#六、配置文章封面图和文章顶部图" class="headerlink" title="六、配置文章封面图和文章顶部图"></a>六、配置文章封面图和文章顶部图</h2><p>在 Fluid 主题中，每篇文章可以单独设置封面图。</p>
+<p>文章开头的 Front-matter 可以这样写：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs markdown">---<br>title: 示例文章<br>date: 2026-05-24 16:30:00<br>tags:<br><span class="hljs-bullet">  -</span> Hexo<br><span class="hljs-bullet">  -</span> Fluid<br>categories:<br><span class="hljs-bullet">  -</span> 个人博客<br>index<span class="hljs-emphasis">_img: /img/post/default.jpg</span><br><span class="hljs-emphasis">banner_</span>img: /img/bg/home.jpg<br>---<br></code></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>index_img</code></td>
+<td>文章在首页卡片中显示的封面图</td>
+</tr>
+<tr>
+<td><code>banner_img</code></td>
+<td>点进文章后顶部显示的大图</td>
+</tr>
+</tbody></table>
+<p>我现在一般把文章封面图放在：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">source/img/post<br></code></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">source/img/post/default.jpg<br></code></pre></td></tr></table></figure>
+
+<p>然后在文章中写：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs markdown">index<span class="hljs-emphasis">_img: /img/post/default.jpg</span><br><span class="hljs-emphasis">banner_</span>img: /img/bg/home.jpg<br></code></pre></td></tr></table></figure>
+
+<p>这里要注意，图片路径前面有 <code>/</code>，表示从网站根目录开始查找。</p>
+<hr>
+<h2 id="七、配置关于页中的头像和个人信息"><a href="#七、配置关于页中的头像和个人信息" class="headerlink" title="七、配置关于页中的头像和个人信息"></a>七、配置关于页中的头像和个人信息</h2><p>关于页的正文在：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">source/about/index.md<br></code></pre></td></tr></table></figure>
+
+<p>但是关于页中的头像、名字、简介、GitHub、微信等信息，主要在 <code>_config.fluid.yml</code> 中设置。</p>
+<p>打开：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">_config.fluid.yml<br></code></pre></td></tr></table></figure>
+
+<p>搜索：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">about:<br></code></pre></td></tr></table></figure>
+
+<p>可以配置成：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">about:</span> <span class="hljs-comment"># 配置关于页面</span><br>  <span class="hljs-attr">avatar:</span> <span class="hljs-string">/img/avatar/avatar.png</span> <span class="hljs-comment"># 设置关于页头像图片</span><br>  <span class="hljs-attr">name:</span> <span class="hljs-string">Fan</span> <span class="hljs-string">Zhaoyu</span> <span class="hljs-comment"># 设置关于页显示的名字</span><br>  <span class="hljs-attr">intro:</span> <span class="hljs-string">&quot;本科自动化学生，记录学习、编程和个人博客搭建过程。&quot;</span> <span class="hljs-comment"># 设置关于页个人简介</span><br>  <span class="hljs-attr">icons:</span> <span class="hljs-comment"># 设置关于页下方的社交链接</span><br>    <span class="hljs-bullet">-</span> &#123; <span class="hljs-attr">class:</span> <span class="hljs-string">&#x27;iconfont icon-github-fill&#x27;</span>, <span class="hljs-attr">link:</span> <span class="hljs-string">&#x27;https://github.com/你的GitHub用户名&#x27;</span>, <span class="hljs-attr">tip:</span> <span class="hljs-string">&#x27;GitHub&#x27;</span> &#125; <span class="hljs-comment"># 设置 GitHub 链接</span><br>    <span class="hljs-bullet">-</span> &#123; <span class="hljs-attr">class:</span> <span class="hljs-string">&#x27;iconfont icon-wechat-fill&#x27;</span>, <span class="hljs-attr">qrcode:</span> <span class="hljs-string">&#x27;/img/avatar/wechat.png&#x27;</span>, <span class="hljs-attr">tip:</span> <span class="hljs-string">&#x27;微信&#x27;</span> &#125; <span class="hljs-comment"># 设置微信二维码</span><br></code></pre></td></tr></table></figure>
+
+<p>这里的微信二维码图片需要提前放在：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">source/img/avatar/wechat.png<br></code></pre></td></tr></table></figure>
+
+<p>头像图片需要提前放在：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">source/img/avatar/avatar.png<br></code></pre></td></tr></table></figure>
+
+<p>如果暂时不想显示微信，也可以只保留 GitHub：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">about:</span> <span class="hljs-comment"># 配置关于页面</span><br>  <span class="hljs-attr">avatar:</span> <span class="hljs-string">/img/avatar/avatar.png</span> <span class="hljs-comment"># 设置关于页头像</span><br>  <span class="hljs-attr">name:</span> <span class="hljs-string">Fan</span> <span class="hljs-string">Zhaoyu</span> <span class="hljs-comment"># 设置关于页名字</span><br>  <span class="hljs-attr">intro:</span> <span class="hljs-string">&quot;记录学习、编程和个人成长。&quot;</span> <span class="hljs-comment"># 设置个人简介</span><br>  <span class="hljs-attr">icons:</span> <span class="hljs-comment"># 设置社交链接</span><br>    <span class="hljs-bullet">-</span> &#123; <span class="hljs-attr">class:</span> <span class="hljs-string">&#x27;iconfont icon-github-fill&#x27;</span>, <span class="hljs-attr">link:</span> <span class="hljs-string">&#x27;https://github.com/你的GitHub用户名&#x27;</span>, <span class="hljs-attr">tip:</span> <span class="hljs-string">&#x27;GitHub&#x27;</span> &#125; <span class="hljs-comment"># 设置 GitHub 链接</span><br></code></pre></td></tr></table></figure>
+
+<p>这里要注意，GitHub 链接需要替换成自己的真实 GitHub 地址。</p>
+<hr>
+<h2 id="八、配置文章分类和标签"><a href="#八、配置文章分类和标签" class="headerlink" title="八、配置文章分类和标签"></a>八、配置文章分类和标签</h2><p>每篇文章的分类和标签都写在文章开头的 Front-matter 中。</p>
+<p>例如：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs markdown">---<br>title: Fluid主题下个人博客的配置与使用<br>date: 2026-05-24 16:30:00<br>tags:<br><span class="hljs-bullet">  -</span> Hexo<br><span class="hljs-bullet">  -</span> Fluid<br><span class="hljs-bullet">  -</span> 个人博客<br>categories:<br><span class="hljs-bullet">  -</span> 个人博客<br>index<span class="hljs-emphasis">_img: /img/post/default.jpg</span><br><span class="hljs-emphasis">banner_</span>img: /img/bg/home.jpg<br>---<br></code></pre></td></tr></table></figure>
+
+<p>这里的：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs markdown">tags:<br><span class="hljs-bullet">  -</span> Hexo<br><span class="hljs-bullet">  -</span> Fluid<br><span class="hljs-bullet">  -</span> 个人博客<br></code></pre></td></tr></table></figure>
+
+<p>表示这篇文章有三个标签。</p>
+<p>这里的：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs markdown">categories:<br><span class="hljs-bullet">  -</span> 个人博客<br></code></pre></td></tr></table></figure>
+
+<p>表示这篇文章属于“个人博客”分类。</p>
+<p>如果分类页里没有出现“个人博客”，通常有几个原因：</p>
+<ol>
+<li>文章的 Front-matter 没有被正确识别。</li>
+<li><code>categories</code> 拼写错误。</li>
+<li>分类页面的 <code>layout: category</code> 没有设置。</li>
+<li>修改之后没有重新执行 <code>hexo clean</code> 和 <code>hexo g</code>。</li>
+</ol>
+<p>Front-matter 的开头和结尾必须是单独一行的 <code>---</code>。</p>
+<p>正确写法：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs markdown">---<br>title: 示例文章<br>date: 2026-05-24 16:30:00<br>categories:<br><span class="hljs-section">  - 个人博客</span><br><span class="hljs-section">---</span><br></code></pre></td></tr></table></figure>
+
+<p>错误写法：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs markdown">--- title: 示例文章<br>date: 2026-05-24 16:30:00<br>categories:<br><span class="hljs-section">  - 个人博客</span><br><span class="hljs-section">---</span><br></code></pre></td></tr></table></figure>
+
+<p>如果写错，Hexo 可能会把 <code>title</code>、<code>date</code>、<code>tags</code>、<code>categories</code> 都当成正文显示出来。</p>
+<hr>
+<h2 id="九、在博客文章中插入图片"><a href="#九、在博客文章中插入图片" class="headerlink" title="九、在博客文章中插入图片"></a>九、在博客文章中插入图片</h2><p>如果我想在文章正文中插入图片，可以先把图片放到：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">source/img/post<br></code></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">source/img/post/blog-example.jpg<br></code></pre></td></tr></table></figure>
+
+<p>然后在文章中写：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">![<span class="hljs-string">博客示例图片</span>](<span class="hljs-link">/img/post/blog-example.jpg</span>)<br></code></pre></td></tr></table></figure>
+
+<p>这里的格式是：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">![<span class="hljs-string">图片说明文字</span>](<span class="hljs-link">图片路径</span>)<br></code></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<table>
+<thead>
+<tr>
+<th>部分</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>图片说明文字</code></td>
+<td>图片加载失败时显示的文字</td>
+</tr>
+<tr>
+<td><code>图片路径</code></td>
+<td>图片在博客中的访问地址</td>
+</tr>
+</tbody></table>
+<p>如果图片不显示，我会优先检查：</p>
+<ol>
+<li>图片是否真的放在了 <code>source/img/post</code> 里。</li>
+<li>图片路径是否写成了 <code>/img/post/图片名</code>。</li>
+<li>文件名大小写是否一致。</li>
+<li>修改后是否重新执行了 <code>hexo clean</code> 和 <code>hexo g</code>。</li>
+</ol>
+<hr>
+<h2 id="十、每次新建博客文章的流程"><a href="#十、每次新建博客文章的流程" class="headerlink" title="十、每次新建博客文章的流程"></a>十、每次新建博客文章的流程</h2><p>以后每次写新博客，我可以按照固定流程进行。</p>
+<p>第一步，进入博客根目录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> ~/Desktop/myBlog <span class="hljs-comment"># 进入桌面上的博客项目根目录</span><br></code></pre></td></tr></table></figure>
+
+<p>第二步，新建文章：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new post <span class="hljs-string">&quot;文章标题&quot;</span> <span class="hljs-comment"># 新建一篇博客文章</span><br></code></pre></td></tr></table></figure>
+
+<p>第三步，打开生成的文章文件：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">source/_posts/文章标题.md<br></code></pre></td></tr></table></figure>
+
+<p>第四步，修改文章开头的 Front-matter：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs markdown">---<br>title: 文章标题<br>date: 2026-05-24 16:30:00<br>tags:<br><span class="hljs-bullet">  -</span> 学习<br>categories:<br><span class="hljs-bullet">  -</span> 个人博客<br>index<span class="hljs-emphasis">_img: /img/post/default.jpg</span><br><span class="hljs-emphasis">banner_</span>img: /img/bg/home.jpg<br>---<br></code></pre></td></tr></table></figure>
+
+<p>第五步，在 Front-matter 下面写正文。</p>
+<p>第六步，重新生成并启动本地预览：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo clean <span class="hljs-comment"># 清理旧缓存</span><br>hexo g <span class="hljs-comment"># 重新生成博客静态网页</span><br>hexo s <span class="hljs-comment"># 启动本地预览服务器</span><br></code></pre></td></tr></table></figure>
+
+<p>第七步，打开浏览器查看：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">http://localhost:4000<br></code></pre></td></tr></table></figure>
+
+<p>如果页面正常显示，说明这篇文章已经成功加入博客。</p>
+<hr>
+<h2 id="十一、每次修改配置后的检查流程"><a href="#十一、每次修改配置后的检查流程" class="headerlink" title="十一、每次修改配置后的检查流程"></a>十一、每次修改配置后的检查流程</h2><p>只要修改了下面这些文件，就建议重新生成：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs text">_config.yml<br>_config.fluid.yml<br>source/about/index.md<br>source/categories/index.md<br>source/tags/index.md<br>source/_posts/文章.md<br></code></pre></td></tr></table></figure>
+
+<p>重新生成的命令是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo clean <span class="hljs-comment"># 清理旧缓存，避免旧配置继续影响页面</span><br>hexo g <span class="hljs-comment"># 根据最新配置生成静态网页</span><br>hexo s <span class="hljs-comment"># 启动本地预览服务器</span><br></code></pre></td></tr></table></figure>
+
+<p>如果浏览器中还是没有变化，可以按：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">Ctrl + F5<br></code></pre></td></tr></table></figure>
+
+<p>强制刷新网页缓存。</p>
+<hr>
+<h2 id="十二、我目前使用-Fluid-主题的目录结构"><a href="#十二、我目前使用-Fluid-主题的目录结构" class="headerlink" title="十二、我目前使用 Fluid 主题的目录结构"></a>十二、我目前使用 Fluid 主题的目录结构</h2><p>经过这些配置后，我的博客目录大致是这样的：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs text">myBlog<br>├─ _config.yml<br>├─ _config.fluid.yml<br>├─ source<br>│  ├─ _posts<br>│  │  └─ Fluid主题下个人博客的配置与使用.md<br>│  ├─ about<br>│  │  └─ index.md<br>│  ├─ categories<br>│  │  └─ index.md<br>│  ├─ tags<br>│  │  └─ index.md<br>│  └─ img<br>│     ├─ avatar<br>│     │  ├─ avatar.png<br>│     │  └─ wechat.png<br>│     ├─ bg<br>│     │  └─ home.jpg<br>│     └─ post<br>│        └─ default.jpg<br></code></pre></td></tr></table></figure>
+
+<p>其中我最常修改的是：</p>
+<table>
+<thead>
+<tr>
+<th>文件或文件夹</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>_config.yml</code></td>
+<td>修改博客基础信息</td>
+</tr>
+<tr>
+<td><code>_config.fluid.yml</code></td>
+<td>修改 Fluid 主题显示效果</td>
+</tr>
+<tr>
+<td><code>source/_posts</code></td>
+<td>存放博客文章</td>
+</tr>
+<tr>
+<td><code>source/about/index.md</code></td>
+<td>修改关于页正文</td>
+</tr>
+<tr>
+<td><code>source/img</code></td>
+<td>存放博客图片</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="十三、总结"><a href="#十三、总结" class="headerlink" title="十三、总结"></a>十三、总结</h2><p>在 Fluid 主题已经安装并启用之后，个人博客的配置重点不在于重新搭建环境，而是在于理解各个文件的作用。</p>
+<p>我目前认为最重要的是：</p>
+<ol>
+<li><code>_config.yml</code> 用来配置博客基础信息。</li>
+<li><code>_config.fluid.yml</code> 用来配置 Fluid 主题效果。</li>
+<li><code>source/_posts</code> 用来存放博客文章。</li>
+<li><code>source/img</code> 用来存放博客图片。</li>
+<li>每篇文章通过 Front-matter 设置标题、时间、分类、标签和封面。</li>
+<li>修改配置后要执行 <code>hexo clean</code>、<code>hexo g</code>、<code>hexo s</code> 重新预览。</li>
+</ol>
+<p>以后我写博客时，主要流程就是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> ~/Desktop/myBlog <span class="hljs-comment"># 进入博客根目录</span><br>hexo new post <span class="hljs-string">&quot;文章标题&quot;</span> <span class="hljs-comment"># 新建文章</span><br>hexo clean <span class="hljs-comment"># 清理旧缓存</span><br>hexo g <span class="hljs-comment"># 重新生成静态网页</span><br>hexo s <span class="hljs-comment"># 启动本地预览服务器</span><br></code></pre></td></tr></table></figure>
+
+<p>本地确认没有问题之后，再考虑把博客推送到 GitHub，实现在线访问。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="category-chain-item">个人博客</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Hexo/" class="print-no-link">#Hexo</a>
+      
+        <a href="/tags/Fluid/" class="print-no-link">#Fluid</a>
+      
+        <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="print-no-link">#个人博客</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Fluid主题下个人博客的配置与使用</div>
+      <div>https://fanfzy.github.io/2026/05/24/Fluid 主题下个人博客怎么配置和使用/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Fan Zhaoyu</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年5月24日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/05/24/github%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2/" title="">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/05/24/%E4%BD%BF%E7%94%A8hexo%E4%BB%A5%E5%8F%8Agithub%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2/" title="使用hexo以及fluid主题部署博客（初始创建）">
+                        <span class="hidden-mobile">使用hexo以及fluid主题部署博客（初始创建）</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

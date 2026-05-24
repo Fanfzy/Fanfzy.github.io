@@ -1,0 +1,127 @@
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+# Hexo 配置
+## 文档: https://hexo.io/docs/configuration.html
+## 源码: https://github.com/hexojs/hexo/
+
+# Site
+title: FAN的个人博客
+subtitle: 学习、编程与生活记录
+description: 记录个人知识库，包括专业学习、个人项目、生活记录。
+keywords:
+author: Fan Zhaoyu
+language: zh-CN
+timezone: Asia/Shanghai
+
+# URL
+## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
+# 网址
+## 在此设置你的站点网址。例如，如果你使用 GitHub Page，请将 url 设置为 'https://username.github.io/project'
+url: https://Fanfzy.github.io
+root: /
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+pretty_urls:
+  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
+  trailing_html: true # Set to false to remove trailing '.html' from permalinks
+
+# Directory
+# 目录
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+# Writing
+new_post_name: :title.md # File name of new posts 新文章的文件名
+default_layout: post
+titlecase: false # Transform title into titlecase  将标题转换为首字母大写
+external_link: 
+  enable: true # Open external links in new tab 在新标签页中打开外部链接
+  field: site # Apply to the whole site 对整个站点生效
+  exclude: ''
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+syntax_highlighter: highlight.js
+highlight:
+  line_number: true
+  auto_detect: false
+  tab_replace: ''
+  wrap: true
+  hljs: false
+prismjs:
+  preprocess: true
+  line_number: true
+  tab_replace: ''
+
+# Home page setting
+# path: Root path for your blogs index page. (default = '')
+# per_page: Posts displayed per page. (0 = disable pagination)
+# order_by: Posts order. (Order by date descending by default)
+# 首页设置
+# path: 博客首页的根路径。(默认 = '')
+# per_page: 每页显示的文章数。(0 = 禁用分页)
+# order_by: 文章排序方式。(默认按日期降序)
+index_generator:
+  path: ''
+  per_page: 10
+  order_by: -date
+
+# Category & Tag
+# 分类与标签
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Metadata elements
+# 元数据元素
+## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
+meta_generator: true
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+# 日期/时间格式
+## Hexo 使用 Moment.js 来解析和显示日期
+## 你可以按照以下文档自定义日期格式
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+## updated_option supports 'mtime', 'date', 'empty'
+updated_option: 'mtime'
+
+# Pagination
+## Set per_page to 0 to disable pagination
+# 分页
+## 将 per_page 设置为 0 以禁用分页
+per_page: 10
+pagination_dir: page
+
+# Include / Exclude file(s)
+## include:/exclude: options only apply to the 'source/' folder
+# 包含/排除文件
+## include/exclude 选项仅适用于 'source/' 文件夹
+include:
+exclude:
+ignore:
+
+# Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+# 扩展
+## 插件: https://hexo.io/plugins/
+## 主题: https://hexo.io/themes/
+theme: fluid
+
+# Deployment  部署
+## Docs: https://hexo.io/docs/one-command-deployment
+deploy:
+  type: ''

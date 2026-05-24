@@ -1,0 +1,7 @@
+node_modules/ # 忽略 Node.js 依赖文件夹，这个文件夹很大，GitHub Actions 会重新安装依赖
+public/ # 忽略 Hexo 本地生成的网页文件，部署时由 GitHub Actions 自动生成
+.deploy_git/ # 忽略 hexo deploy 旧方式生成的部署目录，本方案不用它
+db.json # 忽略 Hexo 本地缓存数据库
+*.log # 忽略日志文件
+.DS_Store # 忽略 macOS 系统隐藏文件
+Thumbs.db # 忽略 Windows 系统缩略图缓存文件
